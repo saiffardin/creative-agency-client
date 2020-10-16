@@ -1,0 +1,15 @@
+#landing-page-div{
+	/* background-color: #E5E5E5; */
+}
+
+.top-section {
+  background-color: #fbd062;
+}
+
+.landingPage-btn {
+  font-family: "Roboto", sans-serif;
+  background-color: #111430 !important;
+  width: 134px;
+  height: 45px;
+  border: none !important;
+}
