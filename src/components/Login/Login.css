@@ -1,0 +1,11 @@
+.login-div {
+  font-family: "Poppins";
+  border: 1px solid black;
+  height: 400px;
+  width: 600px;
+  margin: 100px auto;
+}
+
+.login-div h3 {
+    font-weight: 600;
+}
