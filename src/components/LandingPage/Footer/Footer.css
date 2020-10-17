@@ -1,10 +1,11 @@
 .Footer-div {
-  height: 800px;
+  height: 100%;
   background-color: #fbd062;
+  overflow: hidden;
 }
 
 .Footer-text {
-  margin: 80px 0;
+  margin: 80px 0 10px 0;
   font-family: "Poppins";
   padding: 10px;
 }
