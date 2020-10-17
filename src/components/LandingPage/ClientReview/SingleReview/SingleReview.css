@@ -1,0 +1,20 @@
+.customer-img{
+    width: 75px;
+    height: 75px;
+    margin: 30px 15px 0 20px;
+   
+}
+
+.customer-info{
+    margin : 40px 0 0 0;
+}
+
+.customer-info h5 {
+    margin: 0;
+    font-family: "Poppins";
+    font-weight:500;
+}
+
+.customer-info p{
+    font-family: "Poppins";
+}

@@ -1,0 +1,42 @@
+.Footer-div {
+  height: 800px;
+  background-color: #fbd062;
+}
+
+.Footer-text {
+  margin: 80px 0;
+  font-family: "Poppins";
+  padding: 10px;
+}
+
+.Footer-text h3 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 45px;
+}
+
+.Footer-div p {
+  font-size: 16px;
+  font-weight: 300;
+  padding-top: 10px;
+  line-height: 24px;
+}
+
+.Footer-text p {
+  font-size: 14px;
+  width: 400px;
+}
+
+.Footer-form {
+  margin: 80px 0;
+}
+
+.Footer-form input {
+  height: 70px;
+  font-size: 1.2rem;
+}
+
+textarea {
+  height: 260px !important;
+  font-size: 1.2rem !important;
+}

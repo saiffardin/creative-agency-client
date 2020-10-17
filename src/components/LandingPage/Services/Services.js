@@ -2,7 +2,24 @@ import React from 'react';
 import './Services.css';
 import SingleService from './SingleService/SingleService';
 
+export function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
 
 
 const Services = () => {
@@ -31,29 +48,12 @@ const Services = () => {
 
     ];
 
-    function shuffle(array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-
-        // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-
-        return array;
-    }
 
     shuffle(allServices);
 
+
     return (
-        <div className='services-div d-flex flex-column align-items-center'>
+        <div id="OurTeam" className='services-div d-flex flex-column align-items-center'>
             <h1 className='text-center'>Provide awesome <span>services</span></h1>
 
             <div className='row my-3 container d-flex justify-content-center'>

@@ -1,0 +1,35 @@
+.WorkCarousel-div {
+  height: 700px;
+  background-color: #111430;
+  font-family: "Poppins";
+}
+
+.WorkCarousel-div h1 {
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.WorkCarousel-div span {
+  color: #7ab259;
+}
+
+.carousel-img {
+  max-width: 600px;
+  max-height: 400px;
+  margin: 20px 0;
+}
+
+.carousel-indicators li {
+  background-color: #FBD062 !important;
+  border-radius: 50% !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin-left: 5px !important;
+  margin-right:5px !important;
+}
+
+.carousel-indicators {
+  /* margin-top: 100px !important; */
+  bottom: -50px !important;
+}
