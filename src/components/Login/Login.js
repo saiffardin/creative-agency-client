@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Login.css';
 
 import logo from '../../images/logos/logo.png';
 import google_login from '../../images/google_login.png';
 import { handleGoogleLogin } from './ThirdPartySignInManager';
 import { useHistory, useLocation } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 
 const Login = () => {
 
-    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
     const location = useLocation();
 
@@ -32,7 +33,7 @@ const Login = () => {
         console.log('Google');
         handleGoogleLogin(history, from)
             .then((res) => {
-                // setLoggedInUser(res);
+                setLoggedInUser(res);
                 history.replace(from);
             })
     }
@@ -56,7 +57,7 @@ const Login = () => {
                     </h5>
                 </div>
 
-                <p>Don't have an account <a href="#">Create an account</a>  </p>
+                <p>Don't have an account <a href="#" onClick={googleHandler}>Create an account</a></p>
             </div>
 
         </div>

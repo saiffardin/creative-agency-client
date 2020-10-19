@@ -1,0 +1,17 @@
+.sidebar-div {
+  background-color: white;
+  height: 100vh;
+  /* position: fixed; */
+  padding-right: 0 !important;
+}
+
+.sidebar-div li {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.sidebar-div li span {
+  /* display: inline-block; */
+  /* transform: translate(5px); */
+  margin-left: 10px;
+}

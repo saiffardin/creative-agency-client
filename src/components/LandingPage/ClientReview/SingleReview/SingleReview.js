@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 
 const SingleReview = (props) => {
     const { id, img, name, designation, description } = props.review;
-    console.log('img: ', img);
+    
     return (
         <div>
             <Card className="m-3" style={{ width: '18rem' }}>

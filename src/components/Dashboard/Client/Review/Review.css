@@ -1,0 +1,16 @@
+.review-div input {
+  height: 50px;
+  /* font-size: 1.2rem; */
+  font-family: "Poppins";
+}
+
+.review-div textarea {
+  height: 150px !important;
+  font-family: "Poppins";
+  /* font-size: 1.2rem !important; */
+}
+
+.review-div ::placeholder {
+  font-weight: 300;
+  color: rgb(178, 178, 179) !important;
+}

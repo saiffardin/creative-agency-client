@@ -1,0 +1,33 @@
+.makeAdmin-div input {
+  /* height: 50px; */
+  /* font-size: 1.2rem; */
+  min-width: 400px !important;
+  font-family: "Poppins";
+}
+
+.makeAdmin-div textarea {
+  height: 150px !important;
+  font-family: "Poppins";
+  /* font-size: 1.2rem !important; */
+}
+
+.makeAdmin-div ::placeholder {
+  font-weight: 300;
+  color: rgb(178, 178, 179) !important;
+}
+
+.makeAdmin-div label {
+  font-weight: 700;
+  /* color: rgb(178, 178, 179) !important; */
+}
+
+.makeAdmin-form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.btn-addAdmin{
+    height:38px;
+    margin:32px 10px;
+}

@@ -23,7 +23,7 @@ const Footer = () => {
                             <Form.Control type="text" placeholder="Your name / company’s name" />
                         </Form.Group>
 
-                        <Form.Group controlId="formCompanyName">
+                        <Form.Group controlId="formCompanyMsg">
                             <Form.Control as="textarea" placeholder="Your message" />
                         </Form.Group>
 

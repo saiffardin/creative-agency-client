@@ -1,0 +1,18 @@
+.order-div input {
+  height: 50px;
+  /* font-size: 1.2rem; */
+  font-family: 'Poppins';
+  
+}
+
+.order-div textarea {
+  height: 150px !important;
+  font-family: 'Poppins';
+  /* font-size: 1.2rem !important; */
+}
+
+
+.order-div ::placeholder {
+    font-weight:300;
+    color: rgb(178, 178, 179) !important;
+}
