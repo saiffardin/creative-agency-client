@@ -7,6 +7,7 @@ import './MakeAdmin.css';
 const MakeAdmin = () => {
 
     const [validated, setValidated] = useState(false);
+    const [admin, setAdmin] = useState({});
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,6 +22,7 @@ const MakeAdmin = () => {
         if (form.checkValidity()) {
             // history.push('/afterLogin');
             console.log('order form is correct');
+            addAdmin();
 
         }
         else {
@@ -28,6 +30,38 @@ const MakeAdmin = () => {
             alert('Form is not correct');
         }
     };
+
+
+    const addAdmin = () => {
+        console.log(admin);
+
+        fetch('http://localhost:5000/addAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(admin)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('from api:', data)
+                console.log('admin added');
+                // return true;
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+    }
+
+
+    const handleBlur = (e) => {
+        const newAdmin = { ...admin };
+        newAdmin[e.target.name] = e.target.value;
+        // console.log(e.target.name, ':', e.target.value);
+
+        setAdmin(newAdmin);
+    }
+
+
 
     const formStyle = {
         // border: '1px solid black',
@@ -41,7 +75,7 @@ const MakeAdmin = () => {
     return (
         <div className='makeAdmin-div'>
             <DashNav title="Make Admin"></DashNav>
-            
+
 
             {/* form */}
             <Form noValidate validated={validated} onSubmit={handleSubmit} style={formStyle}>
@@ -56,14 +90,15 @@ const MakeAdmin = () => {
                                 required
                                 type="email"
                                 placeholder="Enter new admin email"
-                            // className=""
+                                name='email'
+                                onBlur={handleBlur}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
                     </Form.Row>
 
                     {/* <div className="mt-4"> */}
-                        <Button className="btn-success btn-addAdmin" type="submit">Submit</Button>
+                    <Button className="btn-success btn-addAdmin" type="submit">Submit</Button>
                     {/* </div> */}
 
 

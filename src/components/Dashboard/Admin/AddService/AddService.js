@@ -7,6 +7,16 @@ import './AddService.css';
 const AddService = () => {
 
     const [validated, setValidated] = useState(false);
+    const [serviceInfo, setServiceInfo] = useState({});
+    const [file, setFile] = useState(null);
+
+    const formStyle = {
+        // border: '1px solid black',
+        // width: '700px',
+        // overflow: 'hidden',
+        padding: '40px 20px 20px 40px'
+        // paddingLeft: '40px'
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,6 +32,16 @@ const AddService = () => {
             // history.push('/afterLogin');
             console.log('order form is correct');
 
+            sendServiceToServer()
+                // .then((response) => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (data) {
+                        alert('Service added - successfully');
+                        // document.getElementById("service-form").reset();
+                    }
+                });
+
         }
         else {
             event.stopPropagation();
@@ -29,15 +49,43 @@ const AddService = () => {
         }
     };
 
-    const formStyle = {
-        // border: '1px solid black',
-        // width: '700px',
-        // overflow: 'hidden',
-        padding: '40px 20px 20px 40px'
-        // paddingLeft: '40px'
+
+    // call api
+    const sendServiceToServer = () => {
+        const formData = new FormData();
+        formData.append('img', file);
+        formData.append('title', serviceInfo.title);
+        formData.append('description', serviceInfo.description);
+
+        return fetch('http://localhost:5000/addService', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                return true;
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
 
+    const handleBlur = (e) => {
+        const newInfo = { ...serviceInfo };
+        newInfo[e.target.name] = e.target.value;
+
+        setServiceInfo(newInfo);
+    }
+
+
+    const handleFileChange = (e) => {
+
+        const newFile = e.target.files[0];
+        setFile(newFile);
+        console.log(newFile);
+    }
 
 
     return (
@@ -47,7 +95,7 @@ const AddService = () => {
 
 
             {/* form */}
-            <Form noValidate validated={validated} onSubmit={handleSubmit} style={formStyle}>
+            <Form noValidate validated={validated} onSubmit={handleSubmit} style={formStyle} id='service-form'>
 
                 <div className="row add-service-form container ">
 
@@ -60,7 +108,8 @@ const AddService = () => {
                                     required
                                     type="text"
                                     placeholder="Enter title"
-                                // defaultValue="Dhaka"
+                                    name="title"
+                                    onBlur={handleBlur}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -76,6 +125,8 @@ const AddService = () => {
                                     required
                                     as='textarea'
                                     placeholder="Enter Description"
+                                    name="description"
+                                    onBlur={handleBlur}
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -84,11 +135,24 @@ const AddService = () => {
                     </div>
 
                     <div className="col-md-6">
-                        {/* Icon */}
-                        <Form.Row>
+                        {/* Upload image btn */}
+                        {/* <Form.Row>
                             <Form.Group as={Col} controlId="validationCustom04">
                                 <Form.Label>Icon</Form.Label>
-                                <Button className="btn btn-imgUpload d-block">Upload Image</Button>
+                                <Button className="btn btn-imgUpload d-block" onClick={uploadImgClicked}>Upload Image</Button>
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                        </Form.Row> */}
+
+                        {/* input */}
+                        <Form.Row>
+                            <Form.Group as={Col} controlId="validationCustom04">
+                                <Form.Label>Upload Icon</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="file"
+                                    onChange={handleFileChange}
+                                />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
                         </Form.Row>

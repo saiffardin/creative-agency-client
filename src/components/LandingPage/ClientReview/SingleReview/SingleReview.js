@@ -4,7 +4,7 @@ import './SingleReview.css';
 import { Card } from 'react-bootstrap';
 
 const SingleReview = (props) => {
-    const { id, img, name, designation, description } = props.review;
+    const {img, name, designation, description } = props.review;
     
     return (
         <div>

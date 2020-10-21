@@ -14,9 +14,7 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
 
-    let { from } = location.state || { from: { pathname: "/afterLogin" } };
-
-
+    let { from } = location.state || { from: { pathname: "/dashboard/order" } };
 
 
     const styleThirdParty = {
@@ -33,8 +31,36 @@ const Login = () => {
         console.log('Google');
         handleGoogleLogin(history, from)
             .then((res) => {
-                setLoggedInUser(res);
-                history.replace(from);
+                // if in admin then change the from
+
+                isUserAdmin(res.email)
+                    .then(isAdmin => {
+                        console.log('user is admin:', isAdmin);
+                        // console.log('from:', from);
+                        // console.log(from.pathname);
+
+                        res.isAdmin = isAdmin;
+                        setLoggedInUser(res);
+                        console.log(res);
+
+                        if (isAdmin) {
+                            from.pathname = "/dashboard/addService";
+                            // console.log("admin path:", from.pathname);
+                        }
+                    })
+                    .then(() => {
+                        history.replace(from)
+                    })
+            })
+    }
+
+    const isUserAdmin = (email) => {
+        return fetch(`http://localhost:5000/findAdmin/${email}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('data:', data);
+
+                return data;
             })
     }
 

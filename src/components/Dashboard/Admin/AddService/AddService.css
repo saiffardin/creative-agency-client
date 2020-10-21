@@ -27,12 +27,17 @@
 }
 
 .btn-imgUpload {
+  /* text-decoration: none !important; */
   background-color: #b9e9cf !important;
   border: none !important;
   color: #009444 !important;
   font-weight: 600 !important;
   transition: all 0.3s ease-in-out;
 }
+
+
+
+
 
 .btn-imgUpload:hover {
   background-color: #7ad8a6 !important;

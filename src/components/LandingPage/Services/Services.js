@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Services.css';
 import SingleService from './SingleService/SingleService';
@@ -26,30 +26,42 @@ export function shuffle(array) {
 const Services = () => {
 
     const history = useHistory();
+    const [allServices, setallServices] = useState([]);
 
-    let allServices = [
-        {
-            id: 1,
-            img: 'service1.png',
-            title: 'Web & Mobile Design',
-            description: 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.'
-        },
+    useEffect(() => {
+        fetch('http://localhost:5000/loadAll')
+            .then(response => response.json())
+            .then(data => {
+                // console.log('length: ', allServices.length);
+                setallServices(data);
+                // console.log(data);
+            })
+    }, [allServices])
 
-        {
-            id: 2,
-            img: 'service2.png',
-            title: 'Graphic Design',
-            description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
-        },
 
-        {
-            id: 3,
-            img: 'service3.png',
-            title: 'Web Development',
-            description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
-        }
+    // let allServices = [
+    //     {
+    //         id: 1,
+    //         img: 'service1.png',
+    //         title: 'Web & Mobile Design',
+    //         description: 'We craft stunning and amazing web UI, using a well drafted UX to fit your product.'
+    //     },
 
-    ];
+    //     {
+    //         id: 2,
+    //         img: 'service2.png',
+    //         title: 'Graphic Design',
+    //         description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
+    //     },
+
+    //     {
+    //         id: 3,
+    //         img: 'service3.png',
+    //         title: 'Web Development',
+    //         description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
+    //     }
+
+    // ];
 
 
     const serviceClicked = (title) => {
@@ -60,7 +72,7 @@ const Services = () => {
         });
     }
 
-    shuffle(allServices);
+    // shuffle(allServices);
 
     return (
         <div id="OurTeam" className='services-div d-flex flex-column align-items-center'>
@@ -69,12 +81,13 @@ const Services = () => {
             <div className='row my-3 container d-flex justify-content-center'>
 
                 {
-                    allServices.map(service => <SingleService service={service} key={service.id} serviceClicked={() => serviceClicked(service.title)}></SingleService>)
+                    allServices.length < 1
+                        ? <h1>Loading...</h1>
+                        : allServices.map(service => <SingleService service={service} key={service._id} serviceClicked={() => serviceClicked(service.title)}></SingleService>)
+
                 }
 
             </div>
-
-
         </div>
     );
 };

@@ -37,9 +37,9 @@ function App() {
                         <AfterLogin></AfterLogin>
                     </PrivateRoute>
 
-                    <Route path='/dashboard'>
+                    <PrivateRoute path='/dashboard'>
                         <FullDashboardPage></FullDashboardPage>
-                    </Route>
+                    </PrivateRoute>
 
                     
 
