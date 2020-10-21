@@ -38,8 +38,8 @@ const firebaseAuth = (provider) => {
 
             let { displayName, email } = result.user;
 
-            console.log(displayName);
-            console.log(email);
+            // console.log(displayName);
+            // console.log(email);
 
             const newUserInfo = {
                 uid: result.user.uid,
@@ -48,7 +48,7 @@ const firebaseAuth = (provider) => {
                 isSignedIn: true,
             };
 
-            console.log(newUserInfo);
+            // console.log(newUserInfo);
 
             return (newUserInfo);
 

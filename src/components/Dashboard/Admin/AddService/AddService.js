@@ -33,7 +33,6 @@ const AddService = () => {
             console.log('order form is correct');
 
             sendServiceToServer()
-                // .then((response) => response.json())
                 .then(data => {
                     console.log(data);
                     if (data) {

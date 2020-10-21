@@ -13,6 +13,13 @@ const Order = () => {
     // console.log(location.service);
 
     const [validated, setValidated] = useState(false);
+    const [orderInfo, setOrderInfo] = useState({});
+
+    const handleBlur = (e) => {
+        const newInfo = { ...orderInfo };
+        newInfo[e.target.name] = e.target.value;
+        setOrderInfo(newInfo);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,6 +34,8 @@ const Order = () => {
         if (form.checkValidity()) {
             // history.push('/afterLogin');
             console.log('order form is correct');
+            // console.log(orderInfo);
+            sendOrderServer();
 
         }
         else {
@@ -34,6 +43,27 @@ const Order = () => {
             alert('Form is not correct');
         }
     };
+
+
+    const sendOrderServer = () => {
+        fetch('http://localhost:5000/addOrder', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderInfo)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('from api:', data)
+                console.log('Order added');
+                alert('Order added successfully');
+
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+
 
     const formStyle = {
         // border: '1px solid black',
@@ -49,7 +79,7 @@ const Order = () => {
             <div>
                 <Form noValidate validated={validated} onSubmit={handleSubmit} style={formStyle}>
 
-                    {/* Origin */}
+
                     <Form.Row >
                         {/* name / comp name */}
                         <Form.Group as={Col} controlId="validationCustom01">
@@ -58,7 +88,8 @@ const Order = () => {
                                 required
                                 type="text"
                                 placeholder="Your name/ company's name"
-                            // defaultValue="Dhaka"
+                                name="name"
+                                onBlur={handleBlur}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
@@ -73,9 +104,8 @@ const Order = () => {
                                 required
                                 type="email"
                                 placeholder="Your email address"
-                            // defaultValue={destination}
-                            // style={{ fontWeight: "bold" }}
-
+                                name="email"
+                                onBlur={handleBlur}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
@@ -92,8 +122,8 @@ const Order = () => {
                                 type="text"
                                 placeholder="Service"
                                 defaultValue={service}
-                            // style={{ fontWeight: "bold" }}
-
+                                name="service"
+                                onBlur={handleBlur}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
@@ -110,9 +140,8 @@ const Order = () => {
                                 // type="text"
                                 as='textarea'
                                 placeholder="Project Detail"
-                            // defaultValue={service}
-                            // style={{ fontWeight: "bold" }}
-
+                                name="projectDetail"
+                                onBlur={handleBlur}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
@@ -126,9 +155,8 @@ const Order = () => {
                                 required
                                 type="number"
                                 placeholder="Price"
-                            // defaultValue={service}
-                            // style={{ fontWeight: "bold" }}
-
+                                name="price"
+                                onBlur={handleBlur}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>

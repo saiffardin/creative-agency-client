@@ -44,6 +44,7 @@ const MakeAdmin = () => {
             .then(data => {
                 console.log('from api:', data)
                 console.log('admin added');
+                alert('Admin added successfully');
                 // return true;
             })
             .catch(error => {

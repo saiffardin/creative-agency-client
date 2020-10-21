@@ -7,6 +7,7 @@ import './Review.css';
 const Review = () => {
 
     const [validated, setValidated] = useState(false);
+    const [review, setReview] = useState({});
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,6 +22,7 @@ const Review = () => {
         if (form.checkValidity()) {
             // history.push('/afterLogin');
             console.log('order form is correct');
+            sendReviewToServer();
 
         }
         else {
@@ -28,6 +30,37 @@ const Review = () => {
             alert('Form is not correct');
         }
     };
+
+
+    const handleBlur = (e) => {
+        const newReview = { ...review };
+
+        newReview[e.target.name] = e.target.value;
+        // console.log(e.target.name, ":", e.target.value);
+
+        setReview(newReview);
+    }
+
+
+    // call api
+    const sendReviewToServer = () => {
+
+         fetch('http://localhost:5000/addReview', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(review)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('review added successfully: ',data)
+                if (data) {
+                    alert('Review added successfully');
+                }
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     const formStyle = {
         // border: '1px solid black',
@@ -45,7 +78,7 @@ const Review = () => {
             {/* form */}
             <Form noValidate validated={validated} onSubmit={handleSubmit} style={formStyle}>
 
-                {/* name */} 
+                {/* name */}
                 <Form.Row >
                     <Form.Group as={Col} controlId="validationCustom01">
                         {/* <Form.Label>Origin</Form.Label> */}
@@ -53,7 +86,8 @@ const Review = () => {
                             required
                             type="text"
                             placeholder="Your name"
-                        // defaultValue="Dhaka"
+                            name="name"
+                            onBlur={handleBlur}
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -68,9 +102,8 @@ const Review = () => {
                             required
                             type="text"
                             placeholder="Company's name, Designation"
-                        // defaultValue={destination}
-                        // style={{ fontWeight: "bold" }}
-
+                            name="company"
+                            onBlur={handleBlur}
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -86,9 +119,8 @@ const Review = () => {
                             // type="text"
                             as='textarea'
                             placeholder="Description"
-                        // defaultValue={service}
-                        // style={{ fontWeight: "bold" }}
-
+                            name="description"
+                            onBlur={handleBlur}
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>

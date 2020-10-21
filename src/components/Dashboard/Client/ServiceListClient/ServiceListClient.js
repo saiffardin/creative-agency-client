@@ -1,8 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { UserContext } from '../../../../App';
 import SingleService from '../../../LandingPage/Services/SingleService/SingleService';
 import DashNav from '../../DashNav/DashNav';
 
+
+
 const ServiceListClient = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [clientOrders_1, setClientOrders_1] = useState([]);
+    // const [singleService, setSingleService] = useState({});
+
+    let email = loggedInUser.email;
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/findOrders/${email}`)
+            .then(response => response.json())
+            .then(data => {
+
+                data.forEach(service => {
+                    // console.log(service);
+                    getFullOrderInfo(service)
+                        .then(fullService => {
+                            console.log('the service:');
+                            console.log(fullService);
+
+                            setClientOrders_1([...clientOrders_1,fullService]);
+                            console.log(clientOrders_1);
+                        })
+                        
+                })
+
+            })
+
+    }, [])
+
+
+    const getFullOrderInfo = (order) => {
+        return fetch(`http://localhost:5000/findService/${order}`)
+            .then(response => response.json())
+            .then(data => {
+                // console.log('data:', data);
+                return data;
+            })
+    }
 
     let clientOrders = [
         {
@@ -41,11 +82,13 @@ const ServiceListClient = () => {
     return (
         <div>
             <DashNav title="Service List"></DashNav>
-            
+
             <div className='row my-3 container d-flex justify-content-center'>
 
                 {
                     clientOrders.map(service => <SingleService service={service} key={service.id} serviceClicked={() => serviceClicked(service.title)}></SingleService>)
+                    // clientOrders_1.map(service => <SingleService service={service} key={service._id} serviceClicked={() => serviceClicked(service.title)}></SingleService>)
+
                 }
 
             </div>

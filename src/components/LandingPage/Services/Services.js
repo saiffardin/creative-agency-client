@@ -26,14 +26,14 @@ export function shuffle(array) {
 const Services = () => {
 
     const history = useHistory();
-    const [allServices, setallServices] = useState([]);
+    const [allServices, setAllServices] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/loadAll')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);
-                setallServices(data);
+                setAllServices(data);
                 // console.log(data);
             })
     }, [allServices])

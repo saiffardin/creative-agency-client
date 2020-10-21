@@ -1,51 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DashNav from '../../DashNav/DashNav';
 
 import './ServiceListAdmin.css';
 
 const ServiceListAdmin = () => {
 
-    const clients = [
-        {
-            id : 1,
-            name: 'Saif Chowdhury',
-            email: 'saiffardin@gmail.com',
-            service: 'Web Development',
-            projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
-        },
+    const [clients, setClients] = useState([]);
 
-        {
-            id : 2,
-            name: 'Saif Chowdhury',
-            email: 'saiffardin@gmail.com',
-            service: 'Web Development',
-            projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
-        },
+    useEffect(() => {
+        fetch('http://localhost:5000/loadAllOrders')
+            .then((response) => response.json())
+            .then(data => {
+                console.log(data);
+                setClients(data);
+            })
+    }, [])
 
-        {
-            id : 3,
-            name: 'Saif Chowdhury',
-            email: 'saiffardin@gmail.com',
-            service: 'Web Development',
-            projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
-        },
+    // const clients = [
+    //     {
+    //         id: 1,
+    //         name: 'Saif Chowdhury',
+    //         email: 'saiffardin@gmail.com',
+    //         service: 'Web Development',
+    //         projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
+    //     },
 
-        {
-            id : 4,
-            name: 'Saif Chowdhury',
-            email: 'saiffardin@gmail.com',
-            service: 'Web Development',
-            projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
-        },
+    //     {
+    //         id: 2,
+    //         name: 'Saif Chowdhury',
+    //         email: 'saiffardin@gmail.com',
+    //         service: 'Web Development',
+    //         projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
+    //     },
 
-        {
-            id : 5,
-            name: 'Saif Chowdhury',
-            email: 'saiffardin@gmail.com',
-            service: 'Web Development',
-            projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
-        },
-    ]
+    //     {
+    //         id: 3,
+    //         name: 'Saif Chowdhury',
+    //         email: 'saiffardin@gmail.com',
+    //         service: 'Web Development',
+    //         projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
+    //     },
+
+    //     {
+    //         id: 4,
+    //         name: 'Saif Chowdhury',
+    //         email: 'saiffardin@gmail.com',
+    //         service: 'Web Development',
+    //         projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
+    //     },
+
+    //     {
+    //         id: 5,
+    //         name: 'Saif Chowdhury',
+    //         email: 'saiffardin@gmail.com',
+    //         service: 'Web Development',
+    //         projectDetails: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit voluptatibus blanditiis quis? Facilis odit, tempore quam archite."
+    //     },
+    // ]
 
     return (
         <div className="admin-serviceList">
@@ -67,14 +78,14 @@ const ServiceListAdmin = () => {
                 <tbody>
                     {
                         clients.map((client) =>
-                            
+
                             <tr key={client.id}>
                                 {/* <td>{index + 1}</td> */}
                                 <td>{client.name}</td>
                                 <td>{client.email}</td>
                                 <td>{client.service}</td>
-                                <td>{client.projectDetails}</td>
-                                
+                                <td>{client.projectDetail}</td>
+
                             </tr>
                         )
                     }

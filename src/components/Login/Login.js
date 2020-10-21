@@ -41,7 +41,7 @@ const Login = () => {
 
                         res.isAdmin = isAdmin;
                         setLoggedInUser(res);
-                        console.log(res);
+                        // console.log(res);
 
                         if (isAdmin) {
                             from.pathname = "/dashboard/addService";
@@ -58,7 +58,7 @@ const Login = () => {
         return fetch(`http://localhost:5000/findAdmin/${email}`)
             .then(response => response.json())
             .then(data => {
-                console.log('data:', data);
+                // console.log('data:', data);
 
                 return data;
             })

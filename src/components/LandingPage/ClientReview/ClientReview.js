@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { shuffle } from '../Services/Services';
 import './ClientReview.css';
 import SingleReview from './SingleReview/SingleReview';
