@@ -14,7 +14,7 @@ const ServiceListClient = () => {
     let email = loggedInUser.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/findOrders/${email}`)
+        fetch(`https://infinite-scrubland-26042.herokuapp.com/findOrders/${email}`)
             .then(response => response.json())
             .then(data => {
 
@@ -25,10 +25,10 @@ const ServiceListClient = () => {
                             console.log('the service:');
                             console.log(fullService);
 
-                            setClientOrders_1([...clientOrders_1,fullService]);
+                            setClientOrders_1([...clientOrders_1, fullService]);
                             console.log(clientOrders_1);
                         })
-                        
+
                 })
 
             })
@@ -37,7 +37,7 @@ const ServiceListClient = () => {
 
 
     const getFullOrderInfo = (order) => {
-        return fetch(`http://localhost:5000/findService/${order}`)
+        return fetch(`https://infinite-scrubland-26042.herokuapp.com/findService/${order}`)
             .then(response => response.json())
             .then(data => {
                 // console.log('data:', data);

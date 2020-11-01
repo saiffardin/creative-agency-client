@@ -55,7 +55,7 @@ const Login = () => {
     }
 
     const isUserAdmin = (email) => {
-        return fetch(`http://localhost:5000/findAdmin/${email}`)
+        return fetch(`https://infinite-scrubland-26042.herokuapp.com/findAdmin/${email}`)
             .then(response => response.json())
             .then(data => {
                 // console.log('data:', data);

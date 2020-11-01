@@ -8,7 +8,7 @@ const ServiceListAdmin = () => {
     const [clients, setClients] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/loadAllOrders')
+        fetch('https://infinite-scrubland-26042.herokuapp.com/loadAllOrders')
             .then((response) => response.json())
             .then(data => {
                 console.log(data);

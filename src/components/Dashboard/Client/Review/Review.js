@@ -45,14 +45,14 @@ const Review = () => {
     // call api
     const sendReviewToServer = () => {
 
-         fetch('http://localhost:5000/addReview', {
+        fetch('https://infinite-scrubland-26042.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(review)
         })
             .then(response => response.json())
             .then(data => {
-                console.log('review added successfully: ',data)
+                console.log('review added successfully: ', data)
                 if (data) {
                     alert('Review added successfully');
                 }

@@ -29,7 +29,7 @@ const Services = () => {
     const [allServices, setAllServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/loadAll')
+        fetch('https://infinite-scrubland-26042.herokuapp.com/loadAll')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);

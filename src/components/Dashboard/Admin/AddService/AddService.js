@@ -56,7 +56,7 @@ const AddService = () => {
         formData.append('title', serviceInfo.title);
         formData.append('description', serviceInfo.description);
 
-        return fetch('http://localhost:5000/addService', {
+        return fetch('https://infinite-scrubland-26042.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
