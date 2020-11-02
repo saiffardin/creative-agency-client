@@ -4,16 +4,16 @@ import './SingleReview.css';
 import { Card } from 'react-bootstrap';
 
 const SingleReview = (props) => {
-    const {img, name, designation, description } = props.review;
-    
+    const {photoURL, name, company, description } = props.review;
+    console.log('img: ',photoURL);
     return (
         <div>
             <Card className="m-3" style={{ width: '18rem' }}>
                 <div className="d-flex">
-                    <img className="customer-img" src={require(`../../../../images/${img}`)} alt="cus" />
+                    <img className="customer-img" src={photoURL} alt="review" />
                     <div className="customer-info">
                         <h5>{name}</h5>
-                        <p>{designation}</p>
+                        <p>{company}</p>
                     </div>
                 </div>
                 <Card.Body>

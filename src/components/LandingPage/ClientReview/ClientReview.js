@@ -1,52 +1,37 @@
-import React, { useState } from 'react';
-import { shuffle } from '../Services/Services';
+import React, { useEffect, useState } from 'react';
 import './ClientReview.css';
 import SingleReview from './SingleReview/SingleReview';
 
 
 const ClientReview = () => {
 
-    let allReviews = [
-        {
-            id: 1,
-            img: 'customer-1.png',
-            name: 'Nash Patrik',
-            designation: 'CEO, Manpol',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
-        },
 
-        {
-            id: 2,
-            img: 'customer-2.png',
-            name: 'Miriam Barron',
-            designation: 'CEO, Manpol',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
-        },
+    const [allReviews, setAllReviews] = useState([]);
 
-        {
-            id: 3,
-            img: 'customer-3.png',
-            name: 'Bria Malone',
-            designation: 'CEO, Manpol',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
-        }
-    ];
 
-    shuffle(allReviews);
+    useEffect(() => {
+        fetch('https://infinite-scrubland-26042.herokuapp.com/loadAllReviews')
+            .then(response => response.json())
+            .then(data => {
+                // console.log('length: ', allServices.length);
+                setAllReviews(data);
+                console.log(data);
+            })
+    }, [])
+
+
 
     return (
         <main className='mt-5 ClientReview-div d-flex flex-column align-items-center'>
 
             <h1 className='my-5 text-center'>Clients <span>Feedback</span></h1>
 
-
             <section className='row mt-5 d-flex justify-content-center'>
-                {/* <SingleReview></SingleReview> */}
 
                 {
-                    allReviews.map(review => <SingleReview review={review} key={review.id}></SingleReview>)
+                    allReviews.map(review => <SingleReview review={review} key={review._id}></SingleReview>)
                 }
-                
+
             </section>
 
         </main>

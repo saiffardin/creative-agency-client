@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
+import { UserContext } from '../../../../App';
 import DashNav from '../../DashNav/DashNav';
 
 import './Review.css';
 
 const Review = () => {
 
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [validated, setValidated] = useState(false);
     const [review, setReview] = useState({});
+
+    // console.log(loggedInUser);
+
+    useEffect(() => {
+        // add img to the review obj
+        const newReview = { ...review };
+        newReview["photoURL"] = loggedInUser.photoURL;
+        newReview["name"] = loggedInUser.displayName;
+        setReview(newReview);
+    }, [])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -17,6 +29,8 @@ const Review = () => {
 
         console.log('validate form: ', form.checkValidity());
         console.log('validate: ', validated);
+
+
 
 
         if (form.checkValidity()) {
@@ -34,7 +48,6 @@ const Review = () => {
 
     const handleBlur = (e) => {
         const newReview = { ...review };
-
         newReview[e.target.name] = e.target.value;
         // console.log(e.target.name, ":", e.target.value);
 
@@ -44,6 +57,8 @@ const Review = () => {
 
     // call api
     const sendReviewToServer = () => {
+
+        console.log(review);
 
         fetch('https://infinite-scrubland-26042.herokuapp.com/addReview', {
             method: 'POST',
@@ -88,6 +103,8 @@ const Review = () => {
                             placeholder="Your name"
                             name="name"
                             onBlur={handleBlur}
+                            defaultValue={loggedInUser.displayName}
+
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>

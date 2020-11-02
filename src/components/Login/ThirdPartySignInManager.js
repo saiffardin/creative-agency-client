@@ -36,15 +36,17 @@ const firebaseAuth = (provider) => {
 
             // let token = result.credential.accessToken;
 
-            let { displayName, email } = result.user;
+            let { displayName, email, photoURL } = result.user;
 
             // console.log(displayName);
             // console.log(email);
+            // console.log(photoURL);
 
             const newUserInfo = {
                 uid: result.user.uid,
-                email: result.user.email,
-                displayName: result.user.displayName,
+                email,
+                displayName,
+                photoURL,
                 isSignedIn: true,
             };
 
