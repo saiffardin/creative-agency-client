@@ -37,25 +37,27 @@ This documentation resembles the whole coding flow of this repository.
 
 ---
 
-## 4. Dashboard: 
+## 4. Dashboard:
 
-Dashboard has 2 parts:
+- ### **Full Dashboard Page:**
 
-1. __Sidebar__ :
-   Here 'Clients' and 'Admins' will have different options base on their role. Sidebar of a client is much different than the sidebar of an admin. 
-   
-   By using conditional rendering we decide whose sidebar we are going to render. Each time when a user logs in, we check the 'Admin' collection (database) to decide whether this user is an admin or not. According to result of this query we set the value of 'isAdmin' key.
+  Dashboard has 2 essential parts:
 
+  1. **Sidebar** :
+     Here 'Clients' and 'Admins' will have different options base on their role. Sidebar of a client is much different than the sidebar of an admin.
 
-2. __Main Section__ :
-   Base on which option is been clicked in the 'sidebar', the content of 'main section will change'. All the routes related to the client or admin been set here.
+     By using conditional rendering we decide whose sidebar we are going to render. Each time when a user logs in, we check the 'Admin' collection (database) to decide whether this user is an admin or not. According to result of this query we set the value of 'isAdmin' key.
 
-- **Full Dashboard Page:**
+  2. **Main Section** :
+     Base on which option is clicked in the 'sidebar', the content of 'main section will change. All the ROUTES related to both the client or admin is set here.
 
-    * Sidebar 
-    * Main Section:
-        * Order
-        * Service List Client
-        * Review
+- ### **DashNav**
 
-  
+- ### **Client** :
+  - Order
+  - Review
+  - Service List Client
+- ### **Admin** :
+  - Add Service
+  - Make Admin
+  - Service List Admin
