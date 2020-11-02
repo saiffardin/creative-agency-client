@@ -36,7 +36,7 @@ const Services = () => {
                 setAllServices(data);
                 // console.log(data);
             })
-    }, [allServices])
+    }, [])
 
 
     // let allServices = [

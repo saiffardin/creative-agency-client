@@ -17,10 +17,13 @@ const FullDashboardPage = () => {
     return (
         <div className="dashboard-div">
             <div className="row">
+                {/* Sidebar */}
                 <div className="col-md-2 pr-0">
                     <Sidebar></Sidebar>
                 </div>
 
+
+                {/* Main Section */}
                 <div className="col-md-10 pl-0">
                     {/* Client */}
                     <Route path='/dashboard/order'>

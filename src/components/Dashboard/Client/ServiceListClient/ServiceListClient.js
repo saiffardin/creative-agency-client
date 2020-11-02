@@ -8,32 +8,39 @@ import DashNav from '../../DashNav/DashNav';
 const ServiceListClient = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [clientOrders_1, setClientOrders_1] = useState([]);
-    // const [singleService, setSingleService] = useState({});
+    const [clientOrders, setClientOrders] = useState([]);
+    const [serviceNamesOnly, setServiceNamesOnly] = useState([]);
 
     let email = loggedInUser.email;
 
     useEffect(() => {
         fetch(`https://infinite-scrubland-26042.herokuapp.com/findOrders/${email}`)
             .then(response => response.json())
-            .then(data => {
+            .then(services => {
+                // console.log(services);
 
-                data.forEach(service => {
-                    // console.log(service);
-                    getFullOrderInfo(service)
-                        .then(fullService => {
-                            console.log('the service:');
-                            console.log(fullService);
+                services.forEach(eachService => {
+                    // console.log(eachService);
+                    getFullOrderInfo(eachService)
+                        .then(response => {
+                            // console.log("Each Service");
+                            // console.log(response);
 
-                            setClientOrders_1([...clientOrders_1, fullService]);
-                            console.log(clientOrders_1);
+
+                            // append React
+                            setClientOrders(clientOrders => [...clientOrders, response] );
+
                         })
-
+                        .then(() => {
+                            // console.log(clientOrders);
+                        })
                 })
-
             })
 
+
+
     }, [])
+
 
 
     const getFullOrderInfo = (order) => {
@@ -45,29 +52,29 @@ const ServiceListClient = () => {
             })
     }
 
-    let clientOrders = [
-        {
-            id: 1,
-            img: 'service1.png',
-            title: 'Web & Mobile Design',
-            description: 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.'
-        },
+    // let clientOrders = [
+    //     {
+    //         id: 1,
+    //         img: 'service1.png',
+    //         title: 'Web & Mobile Design',
+    //         description: 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.'
+    //     },
 
-        {
-            id: 2,
-            img: 'service2.png',
-            title: 'Graphic Design',
-            description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
-        },
+    //     {
+    //         id: 2,
+    //         img: 'service2.png',
+    //         title: 'Graphic Design',
+    //         description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
+    //     },
 
-        {
-            id: 3,
-            img: 'service3.png',
-            title: 'Web Development',
-            description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
-        }
+    //     {
+    //         id: 3,
+    //         img: 'service3.png',
+    //         title: 'Web Development',
+    //         description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
+    //     }
 
-    ];
+    // ];
 
 
     const serviceClicked = (title) => {
@@ -86,8 +93,12 @@ const ServiceListClient = () => {
             <div className='row my-3 container d-flex justify-content-center'>
 
                 {
+                    
+                    clientOrders.length > 0
+                    ?
                     clientOrders.map(service => <SingleService service={service} key={service.id} serviceClicked={() => serviceClicked(service.title)}></SingleService>)
-                    // clientOrders_1.map(service => <SingleService service={service} key={service._id} serviceClicked={() => serviceClicked(service.title)}></SingleService>)
+                    :
+                    <h1>No Orders Yet</h1>
 
                 }
 
