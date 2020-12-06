@@ -19,7 +19,7 @@ const Login = () => {
 
     const styleThirdParty = {
         border: '1px solid lightgray',
-        width: '400px',
+        // width: '400px',
         margin: '30px auto',
         borderRadius: '50px',
         cursor: 'pointer',
@@ -73,12 +73,10 @@ const Login = () => {
                 className="d-inline-block align-top mt-3 img-fluid"
                 alt="React Bootstrap logo"
                 onClick = {()=> history.push('/')}
+                style = {{cursor: 'pointer'}}
             />
 
             {/* login form */}
-
-
-
 
             <div className="row">
                 {/* <div className="col"> */}

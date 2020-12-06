@@ -79,15 +79,16 @@ const MakeAdmin = () => {
 
 
             {/* form */}
-            <Form noValidate validated={validated} onSubmit={handleSubmit} style={formStyle}>
+            <Form className='' noValidate validated={validated} onSubmit={handleSubmit} style={formStyle}>
 
-                <div className="makeAdmin-form container d-flex">
+                <div className="makeAdmin-form container d-flex row">
 
                     {/* email */}
-                    <Form.Row >
+                    <Form.Row className='col'>
                         <Form.Group as={Col} controlId="validationCustom01">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
+                                as = {Col}
                                 required
                                 type="email"
                                 placeholder="Enter new admin email"
@@ -99,7 +100,7 @@ const MakeAdmin = () => {
                     </Form.Row>
 
                     {/* <div className="mt-4"> */}
-                    <Button className="btn-success btn-addAdmin" type="submit">Submit</Button>
+                    <Button className="btn-success btn-addAdmin col-lg-1" type="submit">Submit</Button>
                     {/* </div> */}
 
 

@@ -91,7 +91,7 @@ const Review = () => {
             <DashNav title="Review"></DashNav>
 
             {/* form */}
-            <Form noValidate validated={validated} onSubmit={handleSubmit} style={formStyle}>
+            <Form className='col' noValidate validated={validated} onSubmit={handleSubmit} style={formStyle} >
 
                 {/* name */}
                 <Form.Row >

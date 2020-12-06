@@ -113,7 +113,7 @@ const Order = () => {
                 allServices.length > 0
                     ?
                     <div>
-                        <Form onSubmit={handleSubmit} style={formStyle} id='order-form-id'>
+                        <Form className='col' onSubmit={handleSubmit} style={formStyle} id='order-form-id'>
 
 
                             <Form.Row >
@@ -152,22 +152,7 @@ const Order = () => {
                             </Form.Row>
 
 
-                            {/* service */}
-                            {/* <Form.Row>
-                        <Form.Group as={Col} controlId="validationCustom03">
-                            
-                            <Form.Control
-                                // readOnly
-                                required
-                                type="text"
-                                placeholder="Service"
-                                defaultValue={service}
-                                name="service"
-                                onBlur={handleBlur}
-                            />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                        </Form.Group>
-                    </Form.Row> */}
+                    
 
 
                             {/* service dropdown */}

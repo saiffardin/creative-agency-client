@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
+
 import { Button, Form } from 'react-bootstrap';
 import './Footer.css';
 
 const Footer = () => {
-
-    const [allServices, setAllServices] = useState(['Graphic Design', 'Web Development', 'Web & Mobile Design']);
-
-    const handleServiceDropdown = (e) => {
-        let selectedService = e.target.value;
-        console.log(e.target.name, ':', selectedService);
-        console.log(allServices);
-    }
-
-    // -------------------------------------------------
 
     return (
         <main id="ContactUs" className="Footer-div">
@@ -44,26 +34,6 @@ const Footer = () => {
                         <Button className="landingPage-btn" type="submit">Send</Button>
 
 
-                        {/* testing */}
-                        <Form.Group controlId="exampleForm.SelectCustom">
-                            {/* <Form.Label>Custom select</Form.Label> */}
-                            <Form.Control
-                                as="select"
-                                onChange={handleServiceDropdown}
-                                name="service"
-                            >
-                                <option disabled selected>select service</option>
-                                <option>1</option>
-                                <option>2</option>
-
-                                {
-                                    allServices.map(service => 
-                                        <option>{service}</option>
-                                    )
-                                }
-
-                            </Form.Control>
-                        </Form.Group>
                     </Form>
                 </div>
 
