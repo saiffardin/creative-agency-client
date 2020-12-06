@@ -23,7 +23,7 @@ const TopBanner = () => {
                         <h1 className="px-md-5">Let’s Grow Your Brand To The Next Level</h1>
                         <p className="px-md-5 py-3 mr-md-5">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius blandit facilisis quam netus.
-                        </p>
+                     git   </p>
 
                         <div className="px-5">
                             <Button className="landingPage-btn" onClick={hireUsClicked}>Hire us</Button>

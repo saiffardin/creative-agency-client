@@ -66,10 +66,10 @@ const Services = () => {
 
     const serviceClicked = (title) => {
         console.log(title);
-        history.push({
-            pathname: '/dashboard/order',
-            service: title
-        });
+        // history.push({
+        //     pathname: '/dashboard/order',
+        //     service: title
+        // });
     }
 
     // shuffle(allServices);
