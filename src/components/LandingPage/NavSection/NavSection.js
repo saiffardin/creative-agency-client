@@ -10,7 +10,7 @@ const NavSection = () => {
     return (
         <main>
             {/* <Container> */}
-            <Navbar className='mx-5 px-5' expand="lg">
+            <Navbar className='mx-md-5 px-md-5 ' expand="lg">
                 <Navbar.Brand href="#home" className='mx-5'>
                     <img
                         src={mainLogo}
@@ -21,7 +21,8 @@ const NavSection = () => {
                     />
                 </Navbar.Brand>
 
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle className='' aria-controls="basic-navbar-nav" />
+                
                 <Navbar.Collapse className="text-center" id="basic-navbar-nav">
                     <Nav style={{ fontFamily: 'Poppins' }} className="ml-auto">
                         <Nav.Link href="#Home" className='m-2 underline pb-0'>Home</Nav.Link>

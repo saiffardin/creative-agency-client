@@ -90,7 +90,7 @@ const AddService = () => {
     return (
         <div className='add-service-div'>
             <DashNav title="Add Service"></DashNav>
-            <h1>Add Service</h1>
+            
 
 
             {/* form */}

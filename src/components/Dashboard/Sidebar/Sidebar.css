@@ -1,6 +1,6 @@
 .sidebar-div {
   background-color: white;
-  height: 100vh;
+  /* height: 100vh; */
   /* position: fixed; */
   padding-right: 0 !important;
 }
@@ -14,4 +14,10 @@
   /* display: inline-block; */
   /* transform: translate(5px); */
   margin-left: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar-div {
+    height: 100vh;
+  }
 }

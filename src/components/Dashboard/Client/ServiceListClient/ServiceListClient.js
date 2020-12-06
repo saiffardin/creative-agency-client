@@ -9,7 +9,7 @@ const ServiceListClient = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [clientOrders, setClientOrders] = useState([]);
-    const [serviceNamesOnly, setServiceNamesOnly] = useState([]);
+    // const [serviceNamesOnly, setServiceNamesOnly] = useState([]);
 
     let email = loggedInUser.email;
 
@@ -20,16 +20,13 @@ const ServiceListClient = () => {
                 // console.log(services);
 
                 services.forEach(eachService => {
-                    // console.log(eachService);
+                    console.log(eachService);
                     getFullOrderInfo(eachService)
                         .then(response => {
-                            // console.log("Each Service");
-                            // console.log(response);
-
 
                             // append React
-                            setClientOrders(clientOrders => [...clientOrders, response] );
-
+                            setClientOrders(clientOrders => [...clientOrders, response]);
+                            
                         })
                         .then(() => {
                             // console.log(clientOrders);
@@ -48,6 +45,7 @@ const ServiceListClient = () => {
             .then(response => response.json())
             .then(data => {
                 // console.log('data:', data);
+
                 return data;
             })
     }
@@ -90,15 +88,23 @@ const ServiceListClient = () => {
         <div>
             <DashNav title="Service List"></DashNav>
 
-            <div className='row my-3 container d-flex justify-content-center'>
+            <div className='row my-3 container d-flex  justify-content-center'>
 
                 {
-                    
+
                     clientOrders.length > 0
-                    ?
-                    clientOrders.map(service => <SingleService service={service} key={service.id} serviceClicked={() => serviceClicked(service.title)}></SingleService>)
-                    :
-                    <h1>No Orders Yet</h1>
+                        ?
+                        clientOrders.map(
+                            (service, index) =>
+                                <SingleService service={service} key={index} serviceClicked={() => serviceClicked(service.title)}>
+
+                                    {/* <h1>Status</h1> */}
+                                {/* <button className=''>Delete</button> */}
+
+                                </SingleService>
+                        )
+                        :
+                        <h1>No Orders Yet</h1>
 
                 }
 

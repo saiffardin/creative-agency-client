@@ -6,11 +6,13 @@ const Footer = () => {
     return (
         <main id="ContactUs" className="Footer-div">
             <section className="row m-5">
+
                 {/* left side TEXT */}
                 <div className="col-lg-6 Footer-text">
                     <h3>Let us handle your project, professionally.</h3>
                     <p>With well written codes, we build amazing apps for all platforms, mobile and web apps in general.</p>
                 </div>
+
 
                 {/* right side FORM */}
                 <div className="col-lg-6 Footer-form">

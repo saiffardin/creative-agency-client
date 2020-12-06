@@ -24,7 +24,7 @@ const WorkCarousel = () => {
             <Carousel activeIndex={index} onSelect={handleSelect} controls={false} slide={true}>
                 <Carousel.Item interval={500}>
                     <img
-                        className="carousel-img"
+                        className="carousel-img img-fluid"
                         src={carousel_1}
                         alt="First slide"
                     />
@@ -33,24 +33,24 @@ const WorkCarousel = () => {
 
                 <Carousel.Item interval={500}>
                     <img
-                        className="carousel-img"
+                        className="carousel-img img-fluid"
                         src={carousel_2}
                         alt="Third slide"
                     />
 
                 </Carousel.Item>
 
-                <Carousel.Item interval={500}>
+                {/* <Carousel.Item interval={500}>
                     <img
-                        className="carousel-img"
+                        className="carousel-img img-fluid"
                         src={carousel_3}
                         alt="Third slide"
                     />
-                </Carousel.Item>
+                </Carousel.Item> */}
 
                 <Carousel.Item interval={500}>
                     <img
-                        className="carousel-img"
+                        className="carousel-img img-fluid"
                         src={carousel_4}
                         alt="Forth slide"
                     />
@@ -58,7 +58,7 @@ const WorkCarousel = () => {
 
                 <Carousel.Item interval={500}>
                     <img
-                        className="carousel-img"
+                        className="carousel-img img-fluid"
                         src={carousel_5}
                         alt="Fifth slide"
                     />

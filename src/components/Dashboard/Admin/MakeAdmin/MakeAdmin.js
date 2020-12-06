@@ -105,10 +105,7 @@ const MakeAdmin = () => {
 
                 </div>
 
-
-
             </Form>
-
 
         </div>
     );

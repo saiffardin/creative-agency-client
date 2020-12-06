@@ -9,10 +9,9 @@ import {
 
 import FullLandingPage from './components/LandingPage/FullLandingPage/FullLandingPage';
 import Login from './components/Login/Login';
-import AfterLogin from './components/AfterLogin/AfterLogin';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import FullDashboardPage from './components/Dashboard/FullDashboardPage/FullDashboardPage';
-import Order from './components/Dashboard/Client/Order/Order';
+
 
 
 export const UserContext = createContext();
@@ -33,17 +32,10 @@ function App() {
                         <Login></Login>
                     </Route>
 
-                    <PrivateRoute path='/afterLogin'>
-                        <AfterLogin></AfterLogin>
-                    </PrivateRoute>
-
                     <PrivateRoute path='/dashboard'>
                         <FullDashboardPage></FullDashboardPage>
                     </PrivateRoute>
 
-                    
-
-                    
 
                 </Switch>
 

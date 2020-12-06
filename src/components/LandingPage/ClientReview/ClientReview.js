@@ -15,7 +15,7 @@ const ClientReview = () => {
             .then(data => {
                 // console.log('length: ', allServices.length);
                 setAllReviews(data);
-                console.log(data);
+                // console.log(data);
             })
     }, [])
 

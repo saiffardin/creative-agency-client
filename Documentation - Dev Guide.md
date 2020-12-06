@@ -1,4 +1,10 @@
 This documentation resembles the whole coding flow of this repository.
+Inside the 'components' folder there are five folders.
+
+1.  Landing Page
+2.  Login
+3.  Private Route
+4.  Dashboard
 
 ## 1. Landing Page:
 
@@ -46,11 +52,11 @@ This documentation resembles the whole coding flow of this repository.
   1. **Sidebar** :
      Here 'Clients' and 'Admins' will have different options base on their role. Sidebar of a client is much different than the sidebar of an admin.
 
-     By using conditional rendering we decide whose sidebar we are going to render. Each time when a user logs in, we check the 'Admin' collection (database) to decide whether this user is an admin or not. According to result of this query we set the value of 'isAdmin' key.
+     By using conditional rendering we decide whose sidebar we are going to display. Each time when a user logs in, we check the 'Admin' collection (database) to decide whether this user is an admin or not. According to result of this query we set the value of 'isAdmin' key.
 
   2. **Main Section** :
-     Base on which option is clicked in the 'sidebar', the content of 'main section will change. All the ROUTES related to both the client or admin is set here.
-
+     I named this Main Section as based on which option is clicked in the 'sidebar' menu, the content of 'main section' will change. But no folder or js file is found on this name. All the ROUTES related to both the client or admin been put in 'FullDashboardPage.js' file.
+ 
 - ### **DashNav**
 
 - ### **Client** :

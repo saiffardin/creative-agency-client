@@ -72,19 +72,30 @@ const Login = () => {
                 width="150"
                 className="d-inline-block align-top mt-3 img-fluid"
                 alt="React Bootstrap logo"
+                onClick = {()=> history.push('/')}
             />
 
             {/* login form */}
-            <div className={'login-div  d-flex flex-column justify-content-center align-items-center'}>
-                <h3>Login With</h3>
-                <div style={styleThirdParty} >
-                    <h5 className='my-2 mx-5' onClick={googleHandler}>
-                        <img style={{ width: '40px' }} src={google_login} alt="" /> <span className="ml-3">Continue with Google</span>
-                    </h5>
-                </div>
 
-                <p>Don't have an account <a href="#" onClick={googleHandler}>Create an account</a></p>
+
+
+
+            <div className="row">
+                {/* <div className="col"> */}
+                <div className={'login-div col d-flex flex-column justify-content-center align-items-center px-lg-5'}>
+                    <h3>Login With</h3>
+                    <div style={styleThirdParty} className=''>
+                        <h5 className='my-2 mx-5 ' onClick={googleHandler}>
+                            <img className='img-fluid' style={{ width: '40px' }} src={google_login} alt="" /> <span className="ml-3">Continue with Google</span>
+                        </h5>
+                    </div>
+
+                    <p>Don't have an account <a href="#" onClick={googleHandler}>Create an account</a></p>
+                </div>
+                {/* </div> */}
             </div>
+
+
 
         </div>
     );

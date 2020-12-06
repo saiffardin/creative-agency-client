@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
+import { UserContext } from '../../../../App';
 import DashNav from '../../DashNav/DashNav';
 
 import './Order.css';
@@ -8,12 +9,14 @@ import './Order.css';
 const Order = () => {
 
     const location = useLocation();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
 
     let service = location.service;
     // console.log(location.service);
 
     const [validated, setValidated] = useState(false);
-    const [orderInfo, setOrderInfo] = useState({});
+    const [orderInfo, setOrderInfo] = useState({status:"Pending"});
 
     const handleBlur = (e) => {
         const newInfo = { ...orderInfo };
@@ -90,6 +93,8 @@ const Order = () => {
                                 placeholder="Your name/ company's name"
                                 name="name"
                                 onBlur={handleBlur}
+                                // readOnly
+                                // defaultValue={loggedInUser.displayName}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>
@@ -106,6 +111,8 @@ const Order = () => {
                                 placeholder="Your email address"
                                 name="email"
                                 onBlur={handleBlur}
+                                // readOnly
+                                // defaultValue={loggedInUser.email}
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                         </Form.Group>

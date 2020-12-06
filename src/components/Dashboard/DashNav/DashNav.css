@@ -5,3 +5,14 @@
 .dash-nav .title {
   margin-left: 25px;
 }
+
+.logOut {
+    cursor: pointer;
+    width: fit-content;
+    
+}
+
+.logOut:hover {
+    /* cursor: pointer; */
+    color: #009444;
+}
