@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
 import * as firebase from "firebase/app";
+
+
 import { useHistory } from 'react-router-dom';
 
 
@@ -36,7 +38,7 @@ const DashNav = (props) => {
     }
 
     return (
-        <div className="dash-nav d-flex justify-content-between p-3">
+        <div className="dash-nav d-flex justify-content-between p-md-3">
             <h5 className="title">{title}</h5>
 
             <div>

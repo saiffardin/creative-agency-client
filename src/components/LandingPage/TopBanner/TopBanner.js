@@ -25,7 +25,7 @@ const TopBanner = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius blandit facilisis quam netus.
                      git   </p>
 
-                        <div className="px-5">
+                        <div className="px-md-5">
                             <Button className="landingPage-btn" onClick={hireUsClicked}>Hire us</Button>
                         </div>
                     </div>
