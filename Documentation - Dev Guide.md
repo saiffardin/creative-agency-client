@@ -1,5 +1,5 @@
 This documentation resembles the whole coding flow of this repository.
-Inside the 'components' folder there are five folders.
+Inside the 'components' folder there are four folders.
 
 1.  Landing Page
 2.  Login
