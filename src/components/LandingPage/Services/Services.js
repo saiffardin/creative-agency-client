@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import './Services.css';
 import SingleService from './SingleService/SingleService';
 
@@ -29,7 +29,7 @@ const Services = () => {
     const [allServices, setAllServices] = useState([]);
 
     useEffect(() => {
-        fetch('https://infinite-scrubland-26042.herokuapp.com/loadAll')
+        fetch('https://creative-agency-server.up.railway.app/loadAll')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);
@@ -39,29 +39,7 @@ const Services = () => {
     }, [])
 
 
-    // let allServices = [
-    //     {
-    //         id: 1,
-    //         img: 'service1.png',
-    //         title: 'Web & Mobile Design',
-    //         description: 'We craft stunning and amazing web UI, using a well drafted UX to fit your product.'
-    //     },
 
-    //     {
-    //         id: 2,
-    //         img: 'service2.png',
-    //         title: 'Graphic Design',
-    //         description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
-    //     },
-
-    //     {
-    //         id: 3,
-    //         img: 'service3.png',
-    //         title: 'Web Development',
-    //         description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
-    //     }
-
-    // ];
 
 
     const serviceClicked = (title) => {

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { UserContext } from '../../../../App';
+import React, {useContext, useEffect, useState} from 'react';
+import {UserContext} from '../../../../App';
 import SingleService from '../../../LandingPage/Services/SingleService/SingleService';
 import DashNav from '../../DashNav/DashNav';
 
@@ -14,7 +14,7 @@ const ServiceListClient = () => {
     let email = loggedInUser.email;
 
     useEffect(() => {
-        fetch(`https://infinite-scrubland-26042.herokuapp.com/findOrders/${email}`)
+        fetch(`https://creative-agency-server.up.railway.app/findOrders/${email}`)
             .then(response => response.json())
             .then(services => {
                 // console.log(services);
@@ -26,7 +26,7 @@ const ServiceListClient = () => {
 
                             // append React
                             setClientOrders(clientOrders => [...clientOrders, response]);
-                            
+
                         })
                         .then(() => {
                             // console.log(clientOrders);
@@ -36,12 +36,12 @@ const ServiceListClient = () => {
 
 
 
-    }, [])
+    }, [email])
 
 
 
     const getFullOrderInfo = (order) => {
-        return fetch(`https://infinite-scrubland-26042.herokuapp.com/findService/${order}`)
+        return fetch(`https://creative-agency-server.up.railway.app/findService/${order}`)
             .then(response => response.json())
             .then(data => {
                 // console.log('data:', data);
@@ -99,7 +99,7 @@ const ServiceListClient = () => {
                                 <SingleService service={service} key={index} serviceClicked={() => serviceClicked(service.title)}>
 
                                     {/* <h1>Status</h1> */}
-                                {/* <button className=''>Delete</button> */}
+                                    {/* <button className=''>Delete</button> */}
 
                                 </SingleService>
                         )

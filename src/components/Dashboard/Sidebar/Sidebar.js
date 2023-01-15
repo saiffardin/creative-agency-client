@@ -1,11 +1,11 @@
-import { faClipboardList, faCommentAlt, faShoppingCart, faPlus, faUserPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext } from 'react';
+import {faClipboardList, faCommentAlt, faPlus, faShoppingCart, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React, {useContext} from 'react';
 import './Sidebar.css';
 
+import {Link} from 'react-router-dom';
+import {UserContext} from '../../../App';
 import logo from '../../../images/logos/logo.png';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../../../App';
 
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -17,8 +17,6 @@ const Sidebar = () => {
             <p className='text-center'>
                 <img width="150" className=" m-3 img-fluid" src={logo} alt="logo" />
             </p>
-
-git
 
             {
                 loggedInUser.isAdmin

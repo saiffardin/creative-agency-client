@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import './Login.css';
 
-import logo from '../../images/logos/logo.png';
+import {useHistory, useLocation} from 'react-router-dom';
+import {UserContext} from '../../App';
 import google_login from '../../images/google_login.png';
-import { handleGoogleLogin } from './ThirdPartySignInManager';
-import { useHistory, useLocation } from 'react-router-dom';
-import { UserContext } from '../../App';
+import logo from '../../images/logos/logo.png';
+import {handleGoogleLogin} from './ThirdPartySignInManager';
 
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
 
-    let { from } = location.state || { from: { pathname: "/dashboard/order" } };
+    let {from} = location.state || {from: {pathname: "/dashboard/order"}};
 
 
     const styleThirdParty = {
@@ -55,7 +55,7 @@ const Login = () => {
     }
 
     const isUserAdmin = (email) => {
-        return fetch(`https://infinite-scrubland-26042.herokuapp.com/findAdmin/${email}`)
+        return fetch(`https://creative-agency-server.up.railway.app/findAdmin/${email}`)
             .then(response => response.json())
             .then(data => {
                 // console.log('data:', data);
@@ -72,8 +72,8 @@ const Login = () => {
                 width="150"
                 className="d-inline-block align-top mt-3 img-fluid"
                 alt="React Bootstrap logo"
-                onClick = {()=> history.push('/')}
-                style = {{cursor: 'pointer'}}
+                onClick={() => history.push('/')}
+                style={{cursor: 'pointer'}}
             />
 
             {/* login form */}
@@ -84,7 +84,7 @@ const Login = () => {
                     <h3>Login With</h3>
                     <div style={styleThirdParty} className=''>
                         <h5 className='my-2 mx-5 ' onClick={googleHandler}>
-                            <img className='img-fluid' style={{ width: '40px' }} src={google_login} alt="" /> <span className="ml-3">Continue with Google</span>
+                            <img className='img-fluid' style={{width: '40px'}} src={google_login} alt="" /> <span className="ml-3">Continue with Google</span>
                         </h5>
                     </div>
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Button, Col, Form} from 'react-bootstrap';
 import DashNav from '../../DashNav/DashNav';
 import './AddService.css';
 
@@ -56,7 +56,7 @@ const AddService = () => {
         formData.append('title', serviceInfo.title);
         formData.append('description', serviceInfo.description);
 
-        return fetch('https://infinite-scrubland-26042.herokuapp.com/addService', {
+        return fetch('https://creative-agency-server.up.railway.app/addService', {
             method: 'POST',
             body: formData
         })
@@ -72,7 +72,7 @@ const AddService = () => {
 
 
     const handleBlur = (e) => {
-        const newInfo = { ...serviceInfo };
+        const newInfo = {...serviceInfo};
         newInfo[e.target.name] = e.target.value;
 
         setServiceInfo(newInfo);
@@ -90,7 +90,7 @@ const AddService = () => {
     return (
         <div className='add-service-div'>
             <DashNav title="Add Service"></DashNav>
-            
+
 
 
             {/* form */}

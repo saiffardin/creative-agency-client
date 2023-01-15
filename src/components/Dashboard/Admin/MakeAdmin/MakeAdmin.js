@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Button, Col, Form} from 'react-bootstrap';
 import DashNav from '../../DashNav/DashNav';
 
 import './MakeAdmin.css';
@@ -35,9 +35,9 @@ const MakeAdmin = () => {
     const addAdmin = () => {
         console.log(admin);
 
-        fetch('https://infinite-scrubland-26042.herokuapp.com/addAdmin', {
+        fetch('https://creative-agency-server.up.railway.app/addAdmin', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(admin)
         })
             .then(response => response.json())
@@ -55,7 +55,7 @@ const MakeAdmin = () => {
 
 
     const handleBlur = (e) => {
-        const newAdmin = { ...admin };
+        const newAdmin = {...admin};
         newAdmin[e.target.name] = e.target.value;
         // console.log(e.target.name, ':', e.target.value);
 
@@ -88,7 +88,7 @@ const MakeAdmin = () => {
                         <Form.Group as={Col} controlId="validationCustom01">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
-                                as = {Col}
+                                as={Col}
                                 required
                                 type="email"
                                 placeholder="Enter new admin email"
