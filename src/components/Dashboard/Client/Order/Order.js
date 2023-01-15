@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
-import { UserContext } from '../../../../App';
+import React, {useContext, useEffect, useState} from 'react';
+import {Button, Col, Form} from 'react-bootstrap';
+import {useLocation} from 'react-router-dom';
+import {UserContext} from '../../../../App';
 import DashNav from '../../DashNav/DashNav';
 
 import './Order.css';
@@ -18,10 +18,10 @@ const Order = () => {
     // console.log(location.service);
 
     const [validated, setValidated] = useState(false);
-    const [orderInfo, setOrderInfo] = useState({ status: "Pending" });
+    const [orderInfo, setOrderInfo] = useState({status: "Pending"});
 
     const handleBlur = (e) => {
-        const newInfo = { ...orderInfo };
+        const newInfo = {...orderInfo};
         newInfo[e.target.name] = e.target.value;
         setOrderInfo(newInfo);
     }
@@ -53,7 +53,7 @@ const Order = () => {
 
     const handleServiceDropdown = (e) => {
 
-        const newInfo = { ...orderInfo };
+        const newInfo = {...orderInfo};
         newInfo[e.target.name] = e.target.value;
         setOrderInfo(newInfo);
 
@@ -65,9 +65,9 @@ const Order = () => {
 
 
     const sendOrderServer = () => {
-        fetch('https://infinite-scrubland-26042.herokuapp.com/addOrder', {
+        fetch('https://creative-agency-server.up.railway.app/addOrder', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderInfo)
         })
             .then(response => response.json())
@@ -95,7 +95,7 @@ const Order = () => {
 
 
     useEffect(() => {
-        fetch('https://infinite-scrubland-26042.herokuapp.com/loadAll')
+        fetch('https://creative-agency-server.up.railway.app/loadAll')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);
@@ -152,7 +152,7 @@ const Order = () => {
                             </Form.Row>
 
 
-                    
+
 
 
                             {/* service dropdown */}

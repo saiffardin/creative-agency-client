@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+import React, {useEffect, useState} from 'react';
 import DashNav from '../../DashNav/DashNav';
 
 import './ServiceListAdmin.css';
@@ -11,7 +10,7 @@ const ServiceListAdmin = () => {
 
 
     useEffect(() => {
-        fetch('https://infinite-scrubland-26042.herokuapp.com/loadAllOrders')
+        fetch('https://creative-agency-server.up.railway.app/loadAllOrders')
             .then((response) => response.json())
             .then(data => {
                 // console.log(data);
@@ -59,7 +58,7 @@ const ServiceListAdmin = () => {
         }
 
         // update database
-        updateStatusDB(singleOrderID,currStatus)
+        updateStatusDB(singleOrderID, currStatus)
 
     }
 
@@ -70,15 +69,15 @@ const ServiceListAdmin = () => {
         console.log('status:', status);
         console.log(order);
 
-        fetch(`https://infinite-scrubland-26042.herokuapp.com/updateStatus/${id}`, {
+        fetch(`https://creative-agency-server.up.railway.app/updateStatus/${id}`, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(order)
         })
             .then(result => result.json())
 
             .then(data => {
-                if (data){
+                if (data) {
                     // console.log("data:",data)
                     alert('Order Status Updated Successfully');
                 }
@@ -86,9 +85,9 @@ const ServiceListAdmin = () => {
                 else {
                     alert('Failed to update order status');
                 }
-                    
+
             })
-        
+
     }
 
     const dropDownStyle = {
@@ -96,7 +95,7 @@ const ServiceListAdmin = () => {
     }
 
 
-    
+
 
     return (
         <div className="admin-serviceList col">

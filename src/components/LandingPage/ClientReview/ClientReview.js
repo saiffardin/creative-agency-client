@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './ClientReview.css';
 import SingleReview from './SingleReview/SingleReview';
 
@@ -10,7 +10,7 @@ const ClientReview = () => {
 
 
     useEffect(() => {
-        fetch('https://infinite-scrubland-26042.herokuapp.com/loadAllReviews')
+        fetch('https://creative-agency-server.up.railway.app/loadAllReviews')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);

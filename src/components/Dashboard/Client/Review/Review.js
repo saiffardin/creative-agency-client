@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
-import { UserContext } from '../../../../App';
+import React, {useContext, useEffect, useState} from 'react';
+import {Button, Col, Form} from 'react-bootstrap';
+import {UserContext} from '../../../../App';
 import DashNav from '../../DashNav/DashNav';
 
 import './Review.css';
@@ -15,11 +15,11 @@ const Review = () => {
 
     useEffect(() => {
         // add img to the review obj
-        const newReview = { ...review };
+        const newReview = {...review};
         newReview["photoURL"] = loggedInUser.photoURL;
         newReview["name"] = loggedInUser.displayName;
         setReview(newReview);
-    }, [])
+    }, [loggedInUser.displayName, loggedInUser.photoURL, review])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,7 +47,7 @@ const Review = () => {
 
 
     const handleBlur = (e) => {
-        const newReview = { ...review };
+        const newReview = {...review};
         newReview[e.target.name] = e.target.value;
         // console.log(e.target.name, ":", e.target.value);
 
@@ -60,9 +60,9 @@ const Review = () => {
 
         console.log(review);
 
-        fetch('https://infinite-scrubland-26042.herokuapp.com/addReview', {
+        fetch('https://creative-agency-server.up.railway.app/addReview', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(review)
         })
             .then(response => response.json())
