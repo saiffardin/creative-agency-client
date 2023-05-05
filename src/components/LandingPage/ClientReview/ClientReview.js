@@ -10,7 +10,7 @@ const ClientReview = () => {
 
 
     useEffect(() => {
-        fetch('https://creative-agency-server.up.railway.app/loadAllReviews')
+        fetch('https://render-creative-agency-server.onrender.com/loadAllReviews')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);

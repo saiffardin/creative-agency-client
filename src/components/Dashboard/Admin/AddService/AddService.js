@@ -56,7 +56,7 @@ const AddService = () => {
         formData.append('title', serviceInfo.title);
         formData.append('description', serviceInfo.description);
 
-        return fetch('https://creative-agency-server.up.railway.app/addService', {
+        return fetch('https://render-creative-agency-server.onrender.com/addService', {
             method: 'POST',
             body: formData
         })

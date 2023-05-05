@@ -60,7 +60,7 @@ const Review = () => {
 
         console.log(review);
 
-        fetch('https://creative-agency-server.up.railway.app/addReview', {
+        fetch('https://render-creative-agency-server.onrender.com/addReview', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(review)
