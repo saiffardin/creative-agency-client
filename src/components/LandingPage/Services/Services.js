@@ -29,7 +29,7 @@ const Services = () => {
     const [allServices, setAllServices] = useState([]);
 
     useEffect(() => {
-        fetch('https://creative-agency-server.up.railway.app/loadAll')
+        fetch('https://render-creative-agency-server.onrender.com/loadAll')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);

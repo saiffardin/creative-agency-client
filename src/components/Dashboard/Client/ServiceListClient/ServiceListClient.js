@@ -14,7 +14,7 @@ const ServiceListClient = () => {
     let email = loggedInUser.email;
 
     useEffect(() => {
-        fetch(`https://creative-agency-server.up.railway.app/findOrders/${email}`)
+        fetch(`https://render-creative-agency-server.onrender.com/findOrders/${email}`)
             .then(response => response.json())
             .then(services => {
                 // console.log(services);
@@ -41,7 +41,7 @@ const ServiceListClient = () => {
 
 
     const getFullOrderInfo = (order) => {
-        return fetch(`https://creative-agency-server.up.railway.app/findService/${order}`)
+        return fetch(`https://render-creative-agency-server.onrender.com/findService/${order}`)
             .then(response => response.json())
             .then(data => {
                 // console.log('data:', data);

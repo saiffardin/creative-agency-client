@@ -35,7 +35,7 @@ const MakeAdmin = () => {
     const addAdmin = () => {
         console.log(admin);
 
-        fetch('https://creative-agency-server.up.railway.app/addAdmin', {
+        fetch('https://render-creative-agency-server.onrender.com/addAdmin', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(admin)

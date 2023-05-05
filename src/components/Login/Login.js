@@ -55,7 +55,7 @@ const Login = () => {
     }
 
     const isUserAdmin = (email) => {
-        return fetch(`https://creative-agency-server.up.railway.app/findAdmin/${email}`)
+        return fetch(`https://render-creative-agency-server.onrender.com/findAdmin/${email}`)
             .then(response => response.json())
             .then(data => {
                 // console.log('data:', data);

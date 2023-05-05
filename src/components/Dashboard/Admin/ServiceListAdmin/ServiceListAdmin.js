@@ -10,7 +10,7 @@ const ServiceListAdmin = () => {
 
 
     useEffect(() => {
-        fetch('https://creative-agency-server.up.railway.app/loadAllOrders')
+        fetch('https://render-creative-agency-server.onrender.com/loadAllOrders')
             .then((response) => response.json())
             .then(data => {
                 // console.log(data);
@@ -69,7 +69,7 @@ const ServiceListAdmin = () => {
         console.log('status:', status);
         console.log(order);
 
-        fetch(`https://creative-agency-server.up.railway.app/updateStatus/${id}`, {
+        fetch(`https://render-creative-agency-server.onrender.com/updateStatus/${id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(order)

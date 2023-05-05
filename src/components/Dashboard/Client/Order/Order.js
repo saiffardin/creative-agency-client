@@ -65,7 +65,7 @@ const Order = () => {
 
 
     const sendOrderServer = () => {
-        fetch('https://creative-agency-server.up.railway.app/addOrder', {
+        fetch('https://render-creative-agency-server.onrender.com/addOrder', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderInfo)
@@ -95,7 +95,7 @@ const Order = () => {
 
 
     useEffect(() => {
-        fetch('https://creative-agency-server.up.railway.app/loadAll')
+        fetch('https://render-creative-agency-server.onrender.com/loadAll')
             .then(response => response.json())
             .then(data => {
                 // console.log('length: ', allServices.length);
