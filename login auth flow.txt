@@ -1,0 +1,3 @@
+[x] after login redirect to dashboard
+[x] non-auth users can't visit dashboard redirect them to login page, 
+[x] after login, user can't visit login page and landing page 

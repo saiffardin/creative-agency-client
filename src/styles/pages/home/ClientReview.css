@@ -1,0 +1,26 @@
+.client-review-div span {
+  color: #7ab259;
+}
+
+.client-review-div {
+  margin-bottom: 200px;
+}
+
+.customer-img {
+  width: 75px;
+  height: 75px;
+}
+
+.customer-info {
+  margin: 0px 0 0 0;
+}
+
+.customer-info h5 {
+  margin: 0;
+  font-family: "Poppins";
+  font-weight: 500;
+}
+
+.customer-info p {
+  font-family: "Poppins";
+} 

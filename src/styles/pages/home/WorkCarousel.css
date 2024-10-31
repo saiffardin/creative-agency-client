@@ -1,0 +1,29 @@
+.work-carousel-div {
+  height: 700px;
+  background-color: #111430;
+  font-family: "Poppins";
+}
+
+.work-carousel-div h1 {
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.work-carousel-div span {
+  color: #7ab259;
+}
+
+.carousel-indicators button {
+  background-color: #fbd062 !important;
+  border-radius: 50% !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+.carousel-indicators {
+  /* margin-top: 100px !important; */
+  bottom: -50px !important;
+}
