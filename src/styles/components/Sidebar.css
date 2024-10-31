@@ -1,0 +1,36 @@
+.sidebar-wrapper{
+  max-width: fit-content;
+}
+
+.sidebar-list-item {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+
+}
+
+/* .sidebar-div {
+  background-color: white;
+  height: 100vh;
+  padding-right: 0 !important;
+}
+
+.sidebar-div li {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.sidebar-div li span {
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .sidebar-div ul {
+    display: flex;
+
+    justify-content: space-around;
+  }
+
+  .sidebar-div {
+    height: 100%;
+  }
+} */

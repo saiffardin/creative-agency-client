@@ -1,10 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { StrictMode } from "react";
+import AppRouter from "@router/index";
+import { createRoot } from "react-dom/client";
+import { ToastContainer } from "react-toastify";
 
-createRoot(document.getElementById('root')!).render(
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.min.css";
+import "@styles/index.css";
+import "@styles";
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <AppRouter />
+    <ToastContainer />
+  </StrictMode>
+);

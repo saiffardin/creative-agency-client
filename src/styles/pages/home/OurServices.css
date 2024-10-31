@@ -1,0 +1,30 @@
+.services-div {
+  margin: 150px 0;
+  font-family: "Poppins";
+}
+
+.services-div span {
+  color: #7ab259;
+}
+
+.single-service-div {
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  transition: all 0.3s ease-in-out;
+}
+
+.single-service-div:hover {
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+  transform: scale(1.08);
+}
+
+.single-service-div h3 {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.single-service-div p {
+  line-height: 28px;
+}

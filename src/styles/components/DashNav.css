@@ -1,0 +1,10 @@
+.logOut {
+  cursor: pointer;
+  width: fit-content;
+}
+
+.logOut:hover {
+  color: #940000;
+  background-color: #ff000028;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}

@@ -1,0 +1,19 @@
+.review-div label {
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.review-div input {
+  font-family: "Poppins";
+}
+
+.review-div textarea {
+  height: 150px !important;
+  font-family: "Poppins";
+}
+
+.review-div ::placeholder {
+  font-weight: 300;
+  color: rgb(178, 178, 179) !important;
+}
