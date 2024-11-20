@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "creative-agency-2024",
     "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
