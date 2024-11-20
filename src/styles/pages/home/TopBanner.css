@@ -1,0 +1,9 @@
+.top-banner h1 {
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+.top-banner p {
+  font-family: "Poppins";
+  /* padding-right: 100px !important; */
+}

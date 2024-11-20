@@ -1,0 +1,7 @@
+.admin-service-list table {
+  table-layout: fixed;
+  background-color: white;
+  border: 1px solid black;
+  border: transparent;
+  border-radius: 10px;
+}

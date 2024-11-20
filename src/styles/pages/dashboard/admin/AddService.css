@@ -1,0 +1,35 @@
+.add-service-div input {
+  font-family: "Poppins";
+}
+
+.add-service-div textarea {
+  height: 150px !important;
+  font-family: "Poppins";
+}
+
+.add-service-div ::placeholder {
+  font-weight: 300;
+  color: rgb(178, 178, 179) !important;
+}
+
+.add-service-div label {
+  font-weight: 700;
+}
+
+.add-service-form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.btn-imgUpload {
+  background-color: #b9e9cf !important;
+  border: none !important;
+  color: #009444 !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-imgUpload:hover {
+  background-color: #7ad8a6 !important;
+}
