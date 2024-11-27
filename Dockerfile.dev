@@ -1,14 +1,25 @@
-FROM node:18.17.1
+# Stage 1: Build
+FROM node:20-alpine3.19 AS builder
 
 WORKDIR /app
 
-RUN npm install -g serve
-
-COPY . .
+COPY package.json ./
 
 RUN npm i
 
+COPY . .
+
 RUN npm run build:dev
+
+
+# Stage 2: Production
+FROM node:20-alpine3.19
+
+WORKDIR /app
+
+COPY --from=builder /app/dist /app/dist
+
+RUN npm install -g serve
 
 EXPOSE 3000
 
